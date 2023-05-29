@@ -1,21 +1,32 @@
-  <table>
-
-      <tr>
-          <th (click)="sort('id')" class="w-1/5 text-center">id</th>
-          <th (click)="sort('name')" class="w-1/5 text-center">name</th>
-          <th (click)="sort('date')" class="w-1/5 text-center">date</th>
-          <th (click)="sort('email')" class="w-1/5 text-center">email</th>
-          <th (click)="sort('active')" class="w-1/5 text-center">active</th>
-        </tr>
-        <tr class="p-5 my-9 hover:bg-gray-400 hover:bg-opacity-20" *ngFor="let certificate of sortedCertificateData | paginate: { itemsPerPage:10, currentPage:page } " >
-            <td class="w-1/5 text-center">{{ certificate.id }}</td>
-            <td class="w-1/5 text-center">{{ certificate.name }}</td>
-            <td class="w-1/5 text-center">{{ certificate.date | date:'dd/mm/yyyy hh:mm:ss a'}}</td>
-            <td class="w-1/5 text-center">{{ certificate.email }}</td>
-            <td class="w-1/5 text-center">{{ certificate.active }}</td>
-        </tr>
-    </table>
-        <div class="mt-12">
-            
-            <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Previous"  nextLabel="Next" ></pagination-controls>
-    </div>
+<table>
+  <tr>
+    <th (click)="sort('id')" class="w-1/5 text-center">id</th>
+    <th (click)="sort('name')" class="w-1/5 text-center">name</th>
+    <th (click)="sort('date')" class="w-1/5 text-center">date</th>
+    <th (click)="sort('email')" class="w-1/5 text-center">email</th>
+    <th (click)="sort('active')" class="w-1/5 text-center">active</th>
+  </tr>
+  <tr
+    class="p-5 my-9 hover:bg-gray-400 hover:bg-opacity-20"
+    *ngFor="
+      let certificate of sortedCertificateData
+        | paginate : { itemsPerPage: 10, currentPage: page }
+    "
+  >
+    <td class="w-1/5 text-center">{{ certificate.id }}</td>
+    <td class="w-1/5 text-center">{{ certificate.name }}</td>
+    <td class="w-1/5 text-center">
+      {{ certificate.date | date : "dd/mm/yyyy hh:mm:ss a" }}
+    </td>
+    <td class="w-1/5 text-center">{{ certificate.email }}</td>
+    <td class="w-1/5 text-center">{{ certificate.active }}</td>
+  </tr>
+</table>
+<div class="mt-12">
+  <pagination-controls
+    class="text-center"
+    (pageChange)="page = $event"
+    previousLabel="Previous"
+    nextLabel="Next"
+  ></pagination-controls>
+</div>
