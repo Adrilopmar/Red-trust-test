@@ -1,20 +1,20 @@
-<table class="mx-auto my-12 flex flex-col">
-  <tr class="p-5 my-9 flex">
-    <th (click)="sort('id')" class=" cursor-pointer w-1/5 text-center">Id</th>
-    <th (click)="sort('name')" class=" cursor-pointer w-1/5 text-center">Name</th>
-    <th (click)="sort('date')" class=" cursor-pointer w-1/5 text-center">Date</th>
-    <th (click)="sort('email')" class=" cursor-pointer w-1/5 text-center">Email</th>
-    <th (click)="sort('active')" class=" cursor-pointer w-1/5 text-center">Active</th>
+<table class="mx-auto my-12 flex flex-col sm:p-5 sm:w-3/4">
+  <tr class="py-5 my-9 flex">
+    <th (click)="sort('id')" class="hover:bg-gray-400 border border-black py-3 hover:bg-opacity-20 cursor-pointer w-1/5 text-center">Id</th>
+    <th (click)="sort('name')" class="hover:bg-gray-400 border border-black py-3 hover:bg-opacity-20 cursor-pointer w-1/5 text-center">Name</th>
+    <th (click)="sort('date')" class="hover:bg-gray-400 border border-black py-3 hover:bg-opacity-20 cursor-pointer w-1/5 text-center">Date</th>
+    <th (click)="sort('email')" class="hover:bg-gray-400 border border-black py-3 hover:bg-opacity-20 cursor-pointer w-1/5 text-center">Email</th>
+    <th (click)="sort('active')" class="hover:bg-gray-400 border border-black py-3 hover:bg-opacity-20 cursor-pointer w-1/5 text-center">Active</th>
   </tr>
-  <tbody>
+  <tbody class="">
   <tr
-    class="flex gap-9 p-5 sm:hover:bg-gray-400 sm:hover:bg-opacity-20 hover:bg-opacity-50 bg-{{certificate.active? 'green-200': 'red-200'}} sm:bg-gray-300"
+    class="sm:border sm:border-black flex gap-9 p-5 sm:hover:bg-gray-400 sm:hover:bg-opacity-20 hover:bg-opacity-50 bg-{{certificate.active? 'green-200': 'red-200'}} sm:bg-gray-300"
     *ngFor="
       let certificate of sortedCertificateData
         | paginate : { itemsPerPage: 10, currentPage: page }
     "
   >
-    <td class="w-1/5 text-center">{{ certificate.id }}</td>
+    <td class="w-1/5 text-center ">{{ certificate.id }}</td>
     <td class="w-1/5 text-center">{{ certificate.name }}</td>
     <td class="w-1/5 text-center">
       {{ certificate.date | date : "dd/mm/yyyy hh:mm:ss a" }}
