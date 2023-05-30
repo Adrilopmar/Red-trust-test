@@ -39,7 +39,8 @@ $keyfractor-theme: mat.define-light-theme((
 @tailwind utilities;
 
 body{
-    background: rgb(209, 213, 219);;
+    background: rgb(209, 213, 219);
+    min-height: 100vh;
 }
 
 html, body { height: 100%; }
